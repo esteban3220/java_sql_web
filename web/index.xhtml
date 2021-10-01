@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Tienda SuperMancos</title>
+        <h:outputStylesheet library="css" name="index.css" />
+    </h:head>
+    <h:body>
+        <div class="fondo"> 
+         
+          <br />
+         
+        
+        <h:form>
+              <center>
+             <p:graphicImage value="/ima/Tienda.png" title="Tienda3" alt="image1 desc" height="100" width="300" />    
+        <p:menu style="background-color: transparent">
+                    <p:submenu label="AltaCliente" style="background-color: goldenrod">
+                        <p:menuitem value="Gestionar" outcome="altaCliente"  update="messages" icon="pi pi-star" style="background-color: transparent; color: black"/>          
+                    </p:submenu>
+                   <p:submenu label="AltaEmpleado" style="background-color: goldenrod">
+                       <p:menuitem value="Gestionar" outcome="altaEmpleado"  update="messages" icon="pi pi-star" style="background-color: transparent; color: black"/>          
+                   </p:submenu>
+                   <p:submenu label="AltaProducto" style="background-color: goldenrod">
+                       <p:menuitem value="Gestionar" outcome="altaProducto"  update="messages" icon="pi pi-star" style="background-color: transparent; color: black"/>          
+                   </p:submenu>
+                   <p:submenu label="AltaProvedor" style="background-color: goldenrod">
+                       <p:menuitem value="Gestionar" outcome="altaProvedor"  update="messages" icon="pi pi-star" style="background-color: transparent; color: black"/>          
+                   </p:submenu>
+                   <p:submenu label="AltaSucursal" style="background-color: goldenrod">
+                       <p:menuitem value="Gestionar" outcome="altaSucursal"  update="messages" icon="pi pi-star" style="background-color: transparent; color: black"/>          
+                   </p:submenu>
+                   <p:submenu label="AltaVenta" style="background-color: goldenrod">
+                       <p:menuitem value="Gestionar" outcome="altaVenta"  update="messages" icon="pi pi-star" style="background-color: transparent; color: black"/>          
+                   </p:submenu>
+        </p:menu>
+       
+        <h5 style="color: black">©2021. -Todos los derechos reservados. UAEM.@Mancos marca Reservada  </h5>
+
+            </center>
+            
+        </h:form>
+            
+                
+        </div>
+    </h:body>
+</html>

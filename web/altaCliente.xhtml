@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">     
+    <h:head>
+        <title>Clientes</title>
+        <h:outputStylesheet library="css" name="index.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <div class="fondocli">
+        <h:form id="fromInsertar">
+            <center>
+                <p:graphicImage value="/ima/Clientes.png" title="Provedor" alt="image1 desc" height="100" width="300" />
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Nombre del cliente:"/>
+                    <p:inputText   value="#{clientesBean.cliente.nombre}"/>
+                    <p:outputLabel value="Apellido paterno:"/>
+                    <p:inputText value="#{clientesBean.cliente.apellidoPaterno}"/>
+                    <p:outputLabel value="Apellido materno:"/>
+                    <p:inputText value="#{clientesBean.cliente.apellidoMaterno}"/>
+                    <p:outputLabel value="Sexo:"/>
+                    <p:inputText value="#{clientesBean.cliente.sexo}"/>
+                    <p:outputLabel value="Fecha de Nacimiento:"/>
+                    <p:calendar value="#{clientesBean.cliente.fechanacimiento}"/>
+                    <p:outputLabel value="Direccion:"/>
+                    <p:inputText value="#{clientesBean.cliente.direccion}"/>
+                    <p:outputLabel value="Estado:"/>
+                    <p:inputText value="#{clientesBean.cliente.estado}"/>
+                    <p:outputLabel value="Celular:"/>
+                    <p:inputText value="#{clientesBean.cliente.telefono}"/>
+                </p:panelGrid>
+                <p:growl id="growl" life="2000"/>
+                <p:commandButton actionListener="#{clientesBean.insertar()}"
+                                 value="Agregar" update="growl"/>
+                
+                     <p:commandButton action="index.xhtml"
+                                     value="MenuPrincipal" update="growl"/>
+                     <p:commandButton action="altaVenta.xhtml"
+                                     value="NuevaVenta" update="growl"/>
+            </center>
+         </h:form>
+            
+            
+        </div>
+    </h:body>
+</html>

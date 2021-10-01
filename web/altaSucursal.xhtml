@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Sucursales</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <h:outputStylesheet library="css" name="index.css" />
+    </h:head>
+    <h:body>
+        <div class="fondosucursal" >
+         <h:form id="fromInsertar">
+            <center>
+               <p:graphicImage value="/ima/Sucursal.png" title="Provedor" alt="image1 desc" height="100" width="300" />
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Nombre de la sucursal:"/>
+                    <p:inputText   value="#{sucursalBean.sucursal.nombre}"/>
+                    <p:outputLabel value="Direccion de sucursal:"/>
+                    <p:inputText value="#{sucursalBean.sucursal.direccion}"/>
+                    <p:outputLabel value="Numero de Empleados"/>
+                    <p:inputText value="#{sucursalBean.sucursal.numeroempleados}"/>
+                    <p:outputLabel value="Rfc:"/>
+                    <p:inputText value="#{sucursalBean.sucursal.rfc}"/>
+                    <p:outputLabel value="Hora de apertura:"/>
+                    <p:calendar id="time" value="#{sucursalBean.sucursal.horaapertura}" pattern="HH:mm" timeOnly="true"/>
+                    <p:outputLabel value="CorreoElectronico:"/>
+                    <p:inputText value="#{sucursalBean.sucursal.correo}"/>
+                    <p:outputLabel value="Telefono:"/>
+                    <p:inputText value="#{sucursalBean.sucursal.telefono}"/>
+                    
+                    </p:panelGrid>
+                <p:growl id="growl" life="2000"/>
+                <p:commandButton actionListener="#{sucursalBean.insertar()}"
+                                 value="Agregar" update="growl"/>
+                
+                <p:commandButton action="index.xhtml"
+                                     value="MenuPrincipal" update="growl"/>
+                
+                <p:dataTable value="#{sucursalBean.sucursales}" var="a">
+                    <p:column headerText="IdSucursal">
+                        <h:inputText value="#{a.idsucursal}"/>  
+                    </p:column> 
+                    <p:column headerText="Nombre">
+                        <h:inputText value="#{a.nombre}"/>  
+                    </p:column> 
+                    <p:column headerText="Direcion">
+                        <h:inputText value="#{a.direccion}"/>  
+                    </p:column> 
+                    <p:column headerText="Numero Empleados">
+                        <h:inputText value="#{a.numeroempleados}"/>  
+                    </p:column> 
+                    <p:column headerText="RFC">
+                        <h:inputText value="#{a.rfc}"/>  
+                    </p:column> 
+                    <p:column headerText="HoraApertura">
+                        <p:calendar id="time" value="#{a.horaapertura}" pattern="HH:mm" timeOnly="true"/>  
+                    </p:column>
+                    <p:column headerText="Correo">
+                    <h:inputText value="#{a.correo}"/>
+                    </p:column>
+                        <p:column headerText="Telefono">
+                            <h:inputText value="#{a.telefono}"/>
+                        </p:column> 
+                </p:dataTable>
+            </center>
+        </h:form>
+        </div> 
+    </h:body>
+</html>
+

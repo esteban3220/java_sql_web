@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      
+    
+    <h:head>
+        <title>Ventas</title>
+        <h:outputStylesheet library="css" name="index.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        
+        
+        <title>         Ventas          </title>
+        <div class="fondoventa" >
+        <h:form id="fromInsertar">
+            
+            <center>
+            <p:graphicImage value="/ima/Ventas.png" title="Ventas" alt="image1 desc" height="100" width="300" />
+                <p:panelGrid columns="2"> 
+                
+                <p:outputLabel value="Nombre del Cliente:"/>
+                <p:selectOneMenu value="#{ventaBean.venta.clientes.idcliente}">
+                    <f:selectItems value="#{clientesBean.clientes}" var="fk1" itemLabel="#{fk1.nombre}" itemValue="#{fk1.idcliente}"/>
+                </p:selectOneMenu>
+                <p:outputLabel value="Nombre del Empleado:"/>
+                <p:selectOneMenu value="#{ventaBean.venta.empleado.idempleado}">
+                    <f:selectItems value="#{empleadosBean.empleados}" var="fk2" itemLabel="#{fk2.nombre}" itemValue="#{fk2.idempleado}"/>
+                </p:selectOneMenu>
+                <p:outputLabel value="Nombre del producto:"/>
+                <p:selectOneMenu value="#{ventaBean.venta.producto.idproducto}">
+                    <f:selectItems value="#{productoBean.productos}" var="fk3" itemLabel="#{fk3.nombre}" itemValue="#{fk3.idproducto}"/>
+                </p:selectOneMenu>
+                <p:outputLabel value="Nombre del Sucursal:"/>
+                <p:selectOneMenu value="#{ventaBean.venta.sucursal.idsucursal}">
+                    <f:selectItems value="#{sucursalBean.sucursales}" var="fk4" itemLabel="#{fk4.nombre}" itemValue="#{fk4.idsucursal}"/>
+                </p:selectOneMenu>
+                <p:outputLabel value="Fecha Venta"/>
+                <p:calendar value="#{ventaBean.venta.fechaventa}"/>
+                <p:outputLabel value="HoraVenta:"/>
+                <p:calendar id="time"   value="#{ventaBean.venta.horaventa}" pattern="HH:mm" timeOnly="true" />
+                <p:outputLabel value="Monto Total:"/>
+                <p:inputText value="#{ventaBean.venta.montototal}"/>
+                </p:panelGrid>
+                <p:growl id="growl" life="2000"/>
+                <p:commandButton actionListener="#{ventaBean.insertar()}"
+                                 value="Agregar" update="growl"/>
+                <p:commandButton action="index.xhtml"
+                                 value="MenuPrincipal" update="growl"/>
+        </center>
+        </h:form>
+        </div>  
+    </h:body>
+</html>

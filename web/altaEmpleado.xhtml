@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Empleados</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+         <h:outputStylesheet library="css" name="index.css" />
+    </h:head>
+    <h:body>
+        <div class="fondoempleado">  
+            <h:form id="fromInsertar">
+                <center>
+                    <p:graphicImage value="/ima/Empleados.png" title="Empleado" alt="image1 desc" height="100" width="300" />
+
+                    <p:panelGrid columns="2">
+                        <p:outputLabel value="Nombre del Empleado:"/>
+                        <p:inputText   value="#{empleadosBean.empleado.nombre}"/>
+                        <p:outputLabel value="Apellido paterno:"/>
+                        <p:inputText value="#{empleadosBean.empleado.apellidoPaterno}"/>
+                        <p:outputLabel value="Apellido materno:"/>
+                        <p:inputText value="#{empleadosBean.empleado.apellidoMaterno}"/>
+                        <p:outputLabel value="Direccion:"/>
+                        <p:inputText value="#{empleadosBean.empleado.direccion}"/>
+                        <p:outputLabel value="Salario:"/>
+                        <p:inputText value="#{empleadosBean.empleado.salario}"/>
+                        <p:outputLabel value="Sexo:"/>
+                        <p:inputText value="#{empleadosBean.empleado.sexo}"/>
+                        <p:outputLabel value="Fecha de Nacimiento:"/>
+                        <p:calendar value="#{empleadosBean.empleado.fechanacimiento}"/>
+                        <p:outputLabel value="Hora de Entrada:"/>
+                        <p:calendar id="time"   value="#{empleadosBean.empleado.horaentrada}" pattern="HH:mm" timeOnly="true" />
+                        <p:outputLabel value="Curp:"/>
+                        <p:inputText value="#{empleadosBean.empleado.curp}"/>
+                        <p:outputLabel value="Telefono:"/>
+                        <p:inputText value="#{empleadosBean.empleado.telefono}"/>
+                        <p:outputLabel value="Sucursal:"/> 
+                        <p:selectOneMenu value="#{empleadosBean.empleado.sucursal.idsucursal}">
+
+
+                            <f:selectItems value="#{sucursalBean.sucursales}" var="fk1" itemLabel="#{fk1.nombre}" itemValue="#{fk1.idsucursal}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:growl id="growl" life="2000"/>
+                    <p:commandButton actionListener="#{empleadosBean.insertar()}"
+                                     value="Agregar" update="growl"/>
+                    
+                    <p:commandButton action="index.xhtml"
+                                     value="MenuPrincipal" update="growl"/>
+                </center>
+            </h:form>
+        </div>
+
+    </h:body>
+</html>
