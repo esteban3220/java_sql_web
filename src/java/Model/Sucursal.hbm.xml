@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10/09/2021 12:27:34 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Sucursal" table="sucursal" catalog="super" optimistic-lock="version">
+        <id name="idsucursal" type="java.lang.Integer">
+            <column name="idsucursal" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="45" />
+        </property>
+        <property name="numeroempleados" type="java.lang.Integer">
+            <column name="numeroempleados" />
+        </property>
+        <property name="rfc" type="string">
+            <column name="rfc" length="45" />
+        </property>
+        <property name="horaapertura" type="time">
+            <column name="horaapertura" length="8" />
+        </property>
+        <property name="correo" type="string">
+            <column name="correo" length="45" />
+        </property>
+        <property name="telefono" type="java.lang.Long">
+            <column name="telefono" />
+        </property>
+        <set name="empleados" table="empleado" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idsucursal" />
+            </key>
+            <one-to-many class="Model.Empleado" />
+        </set>
+        <set name="ventas" table="venta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idsucursal" />
+            </key>
+            <one-to-many class="Model.Venta" />
+        </set>
+    </class>
+</hibernate-mapping>

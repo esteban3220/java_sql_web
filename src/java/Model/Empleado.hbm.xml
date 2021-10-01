@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10/09/2021 12:27:34 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Empleado" table="empleado" catalog="super" optimistic-lock="version">
+        <id name="idempleado" type="java.lang.Integer">
+            <column name="idempleado" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="sucursal" class="Model.Sucursal" fetch="select">
+            <column name="idsucursal" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" />
+        </property>
+        <property name="apellidoPaterno" type="string">
+            <column name="apellidoPaterno" length="45" />
+        </property>
+        <property name="apellidoMaterno" type="string">
+            <column name="apellidoMaterno" length="45" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="45" />
+        </property>
+        <property name="salario" type="java.lang.Double">
+            <column name="salario" precision="22" scale="0" />
+        </property>
+        <property name="sexo" type="java.lang.Character">
+            <column name="sexo" length="1" />
+        </property>
+        <property name="fechanacimiento" type="date">
+            <column name="fechanacimiento" length="10" />
+        </property>
+        <property name="horaentrada" type="time">
+            <column name="horaentrada" length="8" />
+        </property>
+        <property name="curp" type="string">
+            <column name="curp" length="45" />
+        </property>
+        <property name="telefono" type="java.lang.Long">
+            <column name="telefono" />
+        </property>
+        <set name="ventas" table="venta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idempleado" />
+            </key>
+            <one-to-many class="Model.Venta" />
+        </set>
+    </class>
+</hibernate-mapping>

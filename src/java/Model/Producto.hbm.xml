@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 10/09/2021 12:27:34 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Producto" table="producto" catalog="super" optimistic-lock="version">
+        <id name="idproducto" type="java.lang.Integer">
+            <column name="idproducto" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="provedor" class="Model.Provedor" fetch="select">
+            <column name="idprovedor" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="45" />
+        </property>
+        <property name="contenido" type="java.lang.Double">
+            <column name="contenido" precision="22" scale="0" />
+        </property>
+        <property name="marca" type="string">
+            <column name="marca" length="45" />
+        </property>
+        <property name="fechacaducidad" type="date">
+            <column name="fechacaducidad" length="10" />
+        </property>
+        <property name="precio" type="java.lang.Double">
+            <column name="precio" precision="22" scale="0" />
+        </property>
+        <set name="ventas" table="venta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idproducto" />
+            </key>
+            <one-to-many class="Model.Venta" />
+        </set>
+    </class>
+</hibernate-mapping>
